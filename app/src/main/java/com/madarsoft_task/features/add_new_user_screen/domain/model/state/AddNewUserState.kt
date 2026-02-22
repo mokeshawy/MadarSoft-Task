@@ -12,8 +12,8 @@ data class AddNewUserState(
     val ageError: UiText? = null,
     val jobTitle: String = "",
     val jobTitleError: UiText? = null,
-    val userGender: String = "",
-    val userGenderError: UiText? = null,
+    val genderType: String = "",
+    val genderTypeError: UiText? = null,
 
     val isLoading: Boolean = false,
     val appError: AppError? = null,

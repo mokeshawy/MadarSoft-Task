@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 fun PrimaryButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
+    isEnabled: Boolean = true,
     shape: RoundedCornerShape = RoundedCornerShape(30.dp),
     colors: ButtonColors = primaryButtonColors(),
     content: @Composable RowScope.() -> Unit
@@ -23,7 +23,7 @@ fun PrimaryButton(
     Button(
         onClick = onClick,
         modifier = modifier.defaultMinSize(minHeight = 45.dp),
-        enabled = enabled,
+        enabled = isEnabled,
         content = content,
         colors = colors,
         shape = shape,
