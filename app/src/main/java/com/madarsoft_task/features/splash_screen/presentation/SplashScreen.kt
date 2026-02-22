@@ -19,7 +19,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun SplashScreen(
     modifier: Modifier = Modifier,
-    onNavigateToOrderList: () -> Unit
+    onNavigateToAddNewUserScreen: () -> Unit
 ) {
     Box(
         modifier = modifier
@@ -29,19 +29,19 @@ fun SplashScreen(
     ) {
         SubcomposeAsyncImageComponent(
             modifier = modifier.size(250.dp),
-            imageUrl = R.drawable.ic_madar_soft,
+            imageUrl = R.drawable.ic_vector_contact_calendar,
             errorPlaceholder = R.drawable.ic_vector_placeholder
         )
     }
 
     LaunchedEffect(Unit) {
         delay(timeMillis = 1000)
-        onNavigateToOrderList()
+        onNavigateToAddNewUserScreen()
     }
 }
 
 @Composable
 @Preview(showBackground = true)
 fun SplashScreenPreview() {
-    SplashScreen(onNavigateToOrderList = {})
+    SplashScreen(onNavigateToAddNewUserScreen = {})
 }

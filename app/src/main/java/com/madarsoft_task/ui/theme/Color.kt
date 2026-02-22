@@ -19,3 +19,9 @@ val BackgroundDark = Color(0xFF1C1B1F)
 
 val SurfaceLight = Color(0xFFFFFBFE)
 val SurfaceDark = Color(0xFF1C1B1F)
+
+
+val NaturalLightHover = Color(0xFFEFEEEF)
+val NaturalLightActive = Color(0xFFDDDDDF)
+val NaturalNormal = Color(0xFF919097)
+val NaturalNormalHover = Color(0xFF838288)
