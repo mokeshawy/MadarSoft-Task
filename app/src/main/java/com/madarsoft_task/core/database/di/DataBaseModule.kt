@@ -3,7 +3,7 @@ package com.madarsoft_task.core.database.di
 import android.content.Context
 import androidx.room.Room
 import com.madarsoft_task.core.database.AppDatabase
-import com.madarsoft_task.features.add_new_user_screen.data.locale.dao.UserDao
+import com.madarsoft_task.features.common.data.locale.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ private const val DATABASE_NAME = "madar-soft-db"
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DatabaseModule {
+object DatabaseModule {
 
 
     @Singleton

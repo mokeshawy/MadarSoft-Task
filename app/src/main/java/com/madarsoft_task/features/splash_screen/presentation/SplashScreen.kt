@@ -19,7 +19,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun SplashScreen(
     modifier: Modifier = Modifier,
-    onNavigateToAddNewUserScreen: () -> Unit
+    onNavigateToAddUserScreen: () -> Unit
 ) {
     Box(
         modifier = modifier
@@ -36,12 +36,12 @@ fun SplashScreen(
 
     LaunchedEffect(Unit) {
         delay(timeMillis = 1000)
-        onNavigateToAddNewUserScreen()
+        onNavigateToAddUserScreen()
     }
 }
 
 @Composable
 @Preview(showBackground = true)
 fun SplashScreenPreview() {
-    SplashScreen(onNavigateToAddNewUserScreen = {})
+    SplashScreen(onNavigateToAddUserScreen = {})
 }
