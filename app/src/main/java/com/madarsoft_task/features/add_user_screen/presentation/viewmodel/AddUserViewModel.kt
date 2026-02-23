@@ -5,7 +5,7 @@ import com.core.error.AppError
 import com.core.extensions.viewModelScope
 import com.madarsoft_task.features.add_user_screen.domain.event.AddUserIntent
 import com.madarsoft_task.features.add_user_screen.domain.model.state.AddUserState
-import com.madarsoft_task.features.add_user_screen.domain.model.ui.UserUiModel
+import com.madarsoft_task.features.common.domain.model.ui.UserUiModel
 import com.madarsoft_task.features.add_user_screen.domain.repository.AddUserRepository
 import com.madarsoft_task.features.add_user_screen.domain.usecase.validations_usecase.AgeValidationUseCase
 import com.madarsoft_task.features.add_user_screen.domain.usecase.validations_usecase.GenderTypeValidationUseCase

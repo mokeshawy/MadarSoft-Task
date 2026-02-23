@@ -1,8 +1,9 @@
-package com.madarsoft_task.features.add_user_screen.domain.model.ui
+package com.madarsoft_task.features.common.domain.model.ui
 
 import com.madarsoft_task.features.common.data.locale.entity.UserEntity
 
 data class UserUiModel(
+    val userId : Int? = null,
     val name: String? = null,
     val age: Int? = null,
     val jobTitle: String? = null,
