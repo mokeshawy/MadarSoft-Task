@@ -7,7 +7,7 @@ import com.madarsoft_task.features.common.data.locale.entity.UserEntity
 
 @Database(
     entities = [UserEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {

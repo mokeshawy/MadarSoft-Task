@@ -7,5 +7,6 @@ import com.madarsoft_task.features.common.domain.model.ui.UserUiModel
 data class UsersListState(
     val isLoading: Boolean = false,
     val appError: AppError? = null,
-    val userUiModel: List<UserUiModel> = emptyList()
+    val userUiModel: List<UserUiModel> = emptyList(),
+    val isUserDeleted : Boolean = false
 ) : ViewState

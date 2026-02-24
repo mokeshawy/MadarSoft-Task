@@ -4,4 +4,6 @@ import com.core.bases.base_viewmodel.ViewIntent
 
 sealed class UsersListIntent : ViewIntent {
     data object RetrieveUsersIntent : UsersListIntent()
+
+    data class DeleteUerIntent(val userId: Long) : UsersListIntent()
 }
