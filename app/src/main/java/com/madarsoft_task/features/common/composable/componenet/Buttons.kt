@@ -1,4 +1,4 @@
-package com.madarsoft_task.features.common.composable
+package com.madarsoft_task.features.common.composable.componenet
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.RowScope

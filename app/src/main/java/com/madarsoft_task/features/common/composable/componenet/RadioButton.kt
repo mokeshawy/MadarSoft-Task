@@ -1,4 +1,4 @@
-package com.madarsoft_task.features.common.composable
+package com.madarsoft_task.features.common.composable.componenet
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row

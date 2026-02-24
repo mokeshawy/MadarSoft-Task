@@ -22,4 +22,7 @@
     <string name="cancel">Cancel</string>
     <string name="show">Show</string>
     <string name="user_added_success">A new user named %s has been added. If you want to see the details, click on Show.</string>
+    <string name="string_placeholder">%s</string>
+    <string name="there_is_no_user_here">There is no users here.</string>
+    <string name="failed_to_load_content">Failed to load content</string>
 </resources>
