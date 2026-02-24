@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "167953488584",
+    "project_id": "madarsoft-task",
+    "storage_bucket": "madarsoft-task.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167953488584:android:9a00a62fb6edc3cf8ce3fd",
+        "android_client_info": {
+          "package_name": "com.madarsoft_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA24w3OCDrK_7KQD5hpfZfmqCiQLMqLnP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167953488584:android:93dd94d5f79bd5c98ce3fd",
+        "android_client_info": {
+          "package_name": "com.madarsoft_task.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA24w3OCDrK_7KQD5hpfZfmqCiQLMqLnP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
