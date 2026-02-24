@@ -13,10 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -238,8 +234,6 @@ fun GenderTypeSelector(
     onSelectGenderType: (String) -> Unit
 ) {
 
-    var selectedOption by rememberSaveable { mutableStateOf(value = genderType) }
-
     Column {
         Text(
             text = stringResource(id = R.string.select_gender),
@@ -250,13 +244,11 @@ fun GenderTypeSelector(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(60.dp)
         ) {
-            RadioButtonWithText(GenderType.MALE.value, selectedOption) {
-                selectedOption = it
+            RadioButtonWithText(GenderType.MALE.value, genderType) {
                 onSelectGenderType(it)
             }
 
-            RadioButtonWithText(GenderType.FEMALE.value, selectedOption) {
-                selectedOption = it
+            RadioButtonWithText(GenderType.FEMALE.value, genderType) {
                 onSelectGenderType(it)
             }
         }
