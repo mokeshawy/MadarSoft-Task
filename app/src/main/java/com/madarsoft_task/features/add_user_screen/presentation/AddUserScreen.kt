@@ -12,9 +12,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -26,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.core.ui_component.custom_text_failed.CustomTextField
+import com.core.ui_component.dialog_component.DialogComponent
 import com.core.ui_component.main_top_bar.MainTopBar
 import com.holouly.core.ui_component.ui_text.UiText
 import com.madarsoft_task.R
@@ -34,6 +36,7 @@ import com.madarsoft_task.features.add_user_screen.domain.model.state.AddUserSta
 import com.madarsoft_task.features.add_user_screen.presentation.viewmodel.AddUserViewModel
 import com.madarsoft_task.features.common.composable.PrimaryButton
 import com.madarsoft_task.features.common.composable.RadioButtonWithText
+import com.madarsoft_task.features.common.composable.UserPopUpContent
 import com.madarsoft_task.ui.theme.NaturalLightActive
 import com.madarsoft_task.ui.theme.NaturalNormal
 import com.madarsoft_task.ui.theme.OnPrimary
@@ -65,7 +68,26 @@ fun AddUserScreen(
                 onSelectGenderType = viewModel::sendGenderValidationIntent,
                 onAddUserBtnClicked = { viewModel.sendAddUserIntent() })
 
+
         })
+
+    LaunchedEffect(key1 = uiState) {
+        if (uiState.isAddedSuccess) {
+            viewModel.showAddUserSuccessPopup = true
+        }
+    }
+
+    SuccessfulAddUserPopup(
+        showDialog = viewModel.showAddUserSuccessPopup,
+        name = uiState.name,
+        onShowDetailsClicked = {
+            //TODO HANDLE NAVIGATE TO USER DETAILS HERE
+            viewModel.onDismissSuccessfulAddUserPopup()
+        },
+        onCancel = {
+            viewModel.onDismissSuccessfulAddUserPopup()
+        }
+    )
 }
 
 @Composable
@@ -119,6 +141,7 @@ fun AddUserContent(
         Spacer(modifier = modifier.height(12.dp))
 
         GenderTypeSelector(
+            genderType = state.genderType,
             genderTypeMessage = state.genderTypeError,
             onSelectGenderType = onSelectGenderType
         )
@@ -209,11 +232,12 @@ fun JobTitleTextFailed(
 
 @Composable
 fun GenderTypeSelector(
+    genderType: String?,
     genderTypeMessage: UiText?,
     onSelectGenderType: (String) -> Unit
 ) {
 
-    var selectedOption by remember { mutableStateOf<String?>(value = null) }
+    var selectedOption by rememberSaveable { mutableStateOf(value = genderType) }
 
     Column {
         Text(
@@ -244,6 +268,29 @@ fun GenderTypeSelector(
             )
         }
     }
+}
+
+
+@Composable
+fun SuccessfulAddUserPopup(
+    showDialog: Boolean,
+    name: String,
+    onShowDetailsClicked: () -> Unit,
+    onCancel: () -> Unit
+) {
+    DialogComponent(
+        showDialog = showDialog,
+        content = {
+            UserPopUpContent(
+                name = name,
+                icon = R.drawable.ic_vector_cloud_done,
+                titleRes = R.string.user_added_success,
+                leftBtnRes = R.string.show,
+                rightBtnRes = R.string.cancel,
+                onLeftBtnClicked = onShowDetailsClicked,
+                onRightBtnClicked = onCancel
+            )
+        })
 }
 
 

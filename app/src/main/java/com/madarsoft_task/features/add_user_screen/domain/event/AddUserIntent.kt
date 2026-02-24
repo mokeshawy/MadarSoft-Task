@@ -1,7 +1,7 @@
 package com.madarsoft_task.features.add_user_screen.domain.event
 
 import com.core.bases.base_viewmodel.ViewIntent
-import com.madarsoft_task.features.add_user_screen.domain.model.ui.UserUiModel
+import com.madarsoft_task.features.common.domain.model.ui.UserUiModel
 
 sealed class AddUserIntent : ViewIntent {
 

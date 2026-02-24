@@ -1,4 +1,4 @@
-package com.madarsoft_task.features.splash_screen.graph
+package com.madarsoft_task.features.splash_screen.presentation.graph
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder

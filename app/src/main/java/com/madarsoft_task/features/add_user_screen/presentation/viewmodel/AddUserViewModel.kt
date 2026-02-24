@@ -1,17 +1,21 @@
 package com.madarsoft_task.features.add_user_screen.presentation.viewmodel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import com.core.bases.base_viewmodel.BaseViewModel
 import com.core.error.AppError
 import com.core.extensions.viewModelScope
 import com.madarsoft_task.features.add_user_screen.domain.event.AddUserIntent
 import com.madarsoft_task.features.add_user_screen.domain.model.state.AddUserState
-import com.madarsoft_task.features.add_user_screen.domain.model.ui.UserUiModel
 import com.madarsoft_task.features.add_user_screen.domain.repository.AddUserRepository
 import com.madarsoft_task.features.add_user_screen.domain.usecase.validations_usecase.AgeValidationUseCase
 import com.madarsoft_task.features.add_user_screen.domain.usecase.validations_usecase.GenderTypeValidationUseCase
 import com.madarsoft_task.features.add_user_screen.domain.usecase.validations_usecase.JobTitleValidationUseCase
 import com.madarsoft_task.features.add_user_screen.domain.usecase.validations_usecase.NameValidationUseCase
+import com.madarsoft_task.features.common.domain.model.ui.UserUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,6 +27,8 @@ class AddUserViewModel @Inject constructor(
     private val addUserRepository: AddUserRepository
 ) : BaseViewModel<AddUserIntent, AddUserState>(initialState = AddUserState()) {
 
+
+    var showAddUserSuccessPopup by mutableStateOf(false)
 
     fun sendNameValidationIntent(name: String) =
         sendIntent(AddUserIntent.NameValidationIntent(name = name))
@@ -119,7 +125,9 @@ class AddUserViewModel @Inject constructor(
     val isAddUserBtnEnabled get() = isNameValid() && isAgeValid() && isJobTitleValid() && isGenderTypeValid()
 
 
-    private fun reduceAddUserState(userUiModel: UserUiModel) = viewModelScope {
+    private fun reduceAddUserState(userUiModel: UserUiModel) = viewModelScope(
+        context = Dispatchers.IO
+    ) {
         updateStateFlow { copy(isLoading = true) }
         try {
             addUserRepository.addUser(user = userUiModel.toUserEntity())
@@ -130,5 +138,23 @@ class AddUserViewModel @Inject constructor(
                 updateStateFlow { copy(isLoading = false, appError = appError) }
             }
         }
+    }
+
+
+    fun onDismissSuccessfulAddUserPopup(){
+        showAddUserSuccessPopup = false
+        resetAddUserState()
+    }
+
+    fun resetAddUserState() = updateStateFlow {
+        copy(
+            name = "",
+            age = "",
+            jobTitle = "",
+            genderType = "",
+            isLoading = false,
+            appError = null,
+            isAddedSuccess = false
+        )
     }
 }

@@ -10,6 +10,8 @@ import androidx.lifecycle.viewModelScope
 import com.core.error.AppError
 import com.core.state.State
 import com.core.state.State.Error
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -22,7 +24,6 @@ fun Context.showToast(message: Int, duration: Int = Toast.LENGTH_SHORT) {
 }
 
 
-
 fun Context.restartActivity(activity: Activity) {
     val intent = Intent(this, activity::class.java)
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -30,9 +31,9 @@ fun Context.restartActivity(activity: Activity) {
 }
 
 
-fun ViewModel.viewModelScope(block: suspend () -> Unit) = this.viewModelScope.launch {
-    block()
-}
+fun ViewModel.viewModelScope(
+    context: CoroutineDispatcher = Dispatchers.Main, block: suspend () -> Unit
+) = this.viewModelScope.launch(context = context) { block() }
 
 
 suspend inline fun <T> Flow<State<T>>.collectOnFlowState(

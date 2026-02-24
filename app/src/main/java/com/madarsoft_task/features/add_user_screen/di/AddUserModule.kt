@@ -1,4 +1,4 @@
-package com.madarsoft_task.features.add_user_screen.domain.di
+package com.madarsoft_task.features.add_user_screen.di
 
 import com.madarsoft_task.features.add_user_screen.data.repository.AddUserRepositoryImpl
 import com.madarsoft_task.features.add_user_screen.domain.repository.AddUserRepository

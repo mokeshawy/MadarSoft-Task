@@ -10,4 +10,16 @@
     <string name="enter_age">Enter age</string>
     <string name="enter_job_title">Enter job title</string>
     <string name="select_gender_type">Select gender</string>
+    <string name="users">Users</string>
+    <string name="gender_type">Gender:</string>
+    <string name="job_title_with_colon">Job Title:</string>
+    <string name="age_with_colon">Age:</string>
+    <string name="name_with_colon">Name:</string>
+    <string name="years_place_holder">%s years</string>
+    <string name="tap_to_load_content">Tap to load content</string>
+    <string name="are_you_sure_delete">Are you sure delete: %s</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="show">Show</string>
+    <string name="user_added_success">A new user named %s has been added. If you want to see the details, click on Show.</string>
 </resources>

@@ -21,13 +21,15 @@ val SurfaceLight = Color(0xFFFFFBFE)
 val SurfaceDark = Color(0xFF1C1B1F)
 
 
+val NaturalLight = Color(0xFFF4F4F5)
 val NaturalLightHover = Color(0xFFEFEEEF)
 val NaturalLightActive = Color(0xFFDDDDDF)
 val NaturalNormal = Color(0xFF919097)
 val NaturalNormalHover = Color(0xFF838288)
 
-val naturalDark = Color(0xFF6D6C71)
-val naturalDarkHover = Color(0xFF57565B)
-val naturalDarkActive = Color(0xFF414144)
-val naturalDarker = Color(0xFF333235)
+val NaturalDark = Color(0xFF6D6C71)
+val NaturalDarkHover = Color(0xFF57565B)
+val NaturalDarkActive = Color(0xFF414144)
+val NaturalDarker = Color(0xFF333235)
+
 
