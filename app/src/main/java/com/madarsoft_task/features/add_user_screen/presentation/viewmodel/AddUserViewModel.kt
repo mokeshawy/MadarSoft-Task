@@ -141,7 +141,18 @@ class AddUserViewModel @Inject constructor(
     }
 
 
-    fun onDismissSuccessfulAddUserPopup(){
+    fun onNavigateToUserDetailsScreen(onNavigateToUserDetails: (UserUiModel) -> Unit) {
+        val userModel = UserUiModel(
+            name = uiStateFlow.value.name,
+            age = uiStateFlow.value.age.toInt(),
+            jobTitle = uiStateFlow.value.jobTitle,
+            genderType = uiStateFlow.value.genderType,
+        )
+        onNavigateToUserDetails(userModel)
+        onDismissSuccessfulAddUserPopup()
+    }
+
+    fun onDismissSuccessfulAddUserPopup() {
         showAddUserSuccessPopup = false
         resetAddUserState()
     }

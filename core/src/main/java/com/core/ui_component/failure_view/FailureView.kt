@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun FailureView(
     modifier: Modifier = Modifier,
-    errText: String = " Failed to load content",
+    errText: String = "Failed to load content",
     @StringRes tapText: Int,
     @StringRes icon: Int,
     color: Color = Color.Transparent,

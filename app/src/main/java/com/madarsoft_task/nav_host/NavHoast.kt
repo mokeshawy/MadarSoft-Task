@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.madarsoft_task.features.add_user_screen.presentation.graph.addUserGraph
 import com.madarsoft_task.features.splash_screen.presentation.graph.SplashScreen
 import com.madarsoft_task.features.splash_screen.presentation.graph.splashGraph
+import com.madarsoft_task.features.user_details_screen.presentation.graph.usersDetailsGraph
 import com.madarsoft_task.features.users_list_screen.presentation.graph.usersListGraph
 import kotlinx.serialization.Serializable
 
@@ -28,5 +29,7 @@ fun RootNavHost() {
         addUserGraph(navController = navController)
 
         usersListGraph(navController = navController)
+
+        usersDetailsGraph(navController = navController)
     }
 }

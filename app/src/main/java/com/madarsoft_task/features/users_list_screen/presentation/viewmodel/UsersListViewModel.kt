@@ -61,7 +61,7 @@ class UsersListViewModel @Inject constructor(
         try {
             retrieveUsersRepository.retrieveAllUsers().collect { users ->
                 val usersUiModel = users.map { it.toUserUiModel() }
-                updateStateFlow { copy(isLoading = false, userUiModel = usersUiModel) }
+                updateStateFlow { copy(isLoading = false, userUiModelList = usersUiModel) }
             }
         } catch (e: Exception) {
             val appError = AppError.E(exception = e, message = e.message ?: "Unknown error")

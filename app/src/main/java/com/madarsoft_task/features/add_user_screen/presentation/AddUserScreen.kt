@@ -34,9 +34,10 @@ import com.madarsoft_task.R
 import com.madarsoft_task.features.add_user_screen.domain.enums.GenderType
 import com.madarsoft_task.features.add_user_screen.domain.model.state.AddUserState
 import com.madarsoft_task.features.add_user_screen.presentation.viewmodel.AddUserViewModel
-import com.madarsoft_task.features.common.composable.PrimaryButton
-import com.madarsoft_task.features.common.composable.RadioButtonWithText
 import com.madarsoft_task.features.common.composable.UserPopUpContent
+import com.madarsoft_task.features.common.composable.componenet.PrimaryButton
+import com.madarsoft_task.features.common.composable.componenet.RadioButtonWithText
+import com.madarsoft_task.features.common.domain.model.ui.UserUiModel
 import com.madarsoft_task.ui.theme.NaturalLightActive
 import com.madarsoft_task.ui.theme.NaturalNormal
 import com.madarsoft_task.ui.theme.OnPrimary
@@ -47,6 +48,7 @@ import com.madarsoft_task.ui.theme.regular
 @Composable
 fun AddUserScreen(
     viewModel: AddUserViewModel = hiltViewModel(),
+    onNavigateToUserDetails: (UserUiModel) -> Unit,
     onRightIconClicked: () -> Unit
 ) {
 
@@ -81,8 +83,7 @@ fun AddUserScreen(
         showDialog = viewModel.showAddUserSuccessPopup,
         name = uiState.name,
         onShowDetailsClicked = {
-            //TODO HANDLE NAVIGATE TO USER DETAILS HERE
-            viewModel.onDismissSuccessfulAddUserPopup()
+            viewModel.onNavigateToUserDetailsScreen(onNavigateToUserDetails)
         },
         onCancel = {
             viewModel.onDismissSuccessfulAddUserPopup()
