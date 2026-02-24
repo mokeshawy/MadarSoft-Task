@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MadarSoft-Task</string>
+    <string name="app_name">User App</string>
     <string name="name">Name*</string>
     <string name="please_enter_user_info_to_add_new_user">Please enter user info to add new user.</string>
     <string name="select_gender">Gender:</string>
